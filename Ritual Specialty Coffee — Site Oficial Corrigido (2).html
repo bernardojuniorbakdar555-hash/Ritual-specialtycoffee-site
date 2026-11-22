@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="pt-MZ" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ritual Specialty Coffee — Café Especial &amp; Torra Ética</title>
+
+    <!-- Tailwind CSS para estrutura visual e responsividade -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Inter, Playfair Display e Caveat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Configuração de Paleta: Cinza, Bege e Castanho -->
+    <script>
+        try {
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            ritual: {
+                                beige: '#F5F0E8',      // Bege claro fundo principal
+                                sand: '#E8DFD3',       // Bege areia suave para cartões/divisores
+                                taupe: '#7A726D',      // Cinza quente da parede do logotipo
+                                slate: '#4A4644',      // Cinza escuro elegante
+                                brown: '#4A2E1B',      // Castanho café principal
+                                espresso: '#2B1A10',   // Castanho profundo
+                                latte: '#9C7A5B'       // Castanho claro/caramelo
+                            }
+                        },
+                        fontFamily: {
+                            sans: ['Inter', 'sans-serif'],
+                            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+                            script: ['Caveat', 'cursive']
+                        },
+                        boxShadow: {
+                            'soft': '0 8px 28px -6px rgba(43, 26, 16, 0.07)',
+                            'card': '0 14px 32px -10px rgba(43, 26, 16, 0.12)'
+                        }
+                    }
+                }
+            };
+        } catch (err) {
+            console.error('Erro ao configurar o Tailwind CSS:', err);
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #F5F0E8;
+            color: #2B1A10;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Ocultar barra de rolagem horizontal em filtros móveis mantendo fluidez */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Barra de rolagem personalizada */
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #E8DFD3;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #7A726D;
+            border-radius: 9999px;
+            transition: background-color 0.25s ease;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4A2E1B;
+        }
+
+        /* Animações simples e transições suaves para botões e interações */
+        button,
+        a[href] {
+            transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+                        background-color 0.25s ease,
+                        border-color 0.25s ease,
+                        color 0.25s ease,
+                        box-shadow 0.25s ease,
+                        opacity 0.25s ease;
+        }
+
+        button:active,
+        a[href]:active {
+            transform: scale(0.96);
+        }
+
+        @keyframes badgePop {
+            0% { transform: scale(1); }
+            45% { transform: scale(1.28); }
+            100% { transform: scale(1); }
+        }
+
+        .badge-pop {
+            animation: badgePop 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        @keyframes cardFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .menu-card-enter {
+            animation: cardFadeIn 0.32s ease forwards;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            button,
+            a[href],
+            .badge-pop,
+            .menu-card-enter {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-ritual-brown selection:text-ritual-beige pb-20 md:pb-0">
+
+    <!-- ==================== CABEÇALHO PRINCIPAL ==================== -->
+    <header class="sticky top-0 z-40 bg-ritual-beige/95 backdrop-blur-md border-b border-ritual-sand">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
+
+            <!-- Menu Hambúrguer Mobile -->
+            <button type="button" onclick="toggleMobileMenu()" class="md:hidden w-10 h-10 rounded-full bg-white/80 border border-ritual-sand flex items-center justify-center text-ritual-espresso hover:bg-ritual-sand hover:-translate-y-0.5 hover:shadow-soft transition" aria-label="Abrir Menu">
+                <i id="mobile-icon" class="fa-solid fa-bars text-base transition-transform duration-200"></i>
+            </button>
+
+            <!-- Logotipo Oficial Extraído e Vetorizado (Ritual Specialty Coffee) -->
+            <a href="#inicio" class="flex items-center gap-3 group focus:outline-none">
+                <div class="bg-ritual-taupe px-4 py-2 rounded-2xl shadow-xs transition-transform duration-300 group-hover:scale-[1.02]">
+                    <svg viewBox="0 0 260 95" class="h-10 sm:h-11 w-auto" xmlns="http://www.w3.org/2000/svg" aria-label="Ritual Specialty Coffee Logo">
+                        <!-- Assinatura manuscrita fiel ao logotipo original -->
+                        <path d="M 38 56 C 43 36, 51 16, 54 13 C 46 13, 31 19, 29 31 C 28 38, 37 42, 49 38 C 61 34, 68 25, 66 17 C 64 11, 52 13, 47 22 C 43 30, 44 39, 53 46 C 61 53, 70 57, 78 55 C 84 53, 89 45, 91 39 C 89 46, 89 54, 95 55 C 101 56, 108 47, 114 33 C 118 23, 121 15, 122 12 C 119 23, 114 43, 117 52 C 119 56, 125 55, 130 49 C 133 45, 135 40, 136 38 C 134 45, 134 54, 140 55 C 146 56, 152 48, 155 40 C 153 48, 154 55, 160 55 C 166 55, 173 48, 178 41 C 175 47, 175 54, 182 55 C 188 56, 194 49, 195 42 C 195 37, 189 36, 184 39 C 178 42, 176 49, 180 54 C 185 56, 192 52, 196 45 C 195 51, 197 56, 204 56 C 211 56, 221 43, 228 24 C 232 14, 233 10, 231 10 C 228 11, 221 26, 219 42 C 218 52, 223 57, 231 55 C 237 54, 243 49, 247 44"
+                              fill="none" stroke="#FFFFFF" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <!-- Ponto do i -->
+                        <circle cx="93" cy="27" r="2.6" fill="#FFFFFF"/>
+                        <!-- Traço do t -->
+                        <path d="M 107 28 L 128 26" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round"/>
+                        <!-- Subtítulo SPECIALTY COFFEE -->
+                        <text x="138" y="78" text-anchor="middle" fill="#FFFFFF" font-family="'Inter', sans-serif" font-weight="600" font-size="11.5" letter-spacing="4.6">SPECIALTY COFFEE</text>
+                    </svg>
+                </div>
+            </a>
+
+            <!-- Navegação Desktop -->
+            <nav class="hidden md:flex items-center gap-7 text-xs font-semibold uppercase tracking-wider text-ritual-slate">
+                <a href="#inicio" class="hover:text-ritual-brown transition">Início</a>
+                <a href="#cardapio" class="hover:text-ritual-brown transition">Cardápio</a>
+                <a href="#para-levar" class="hover:text-ritual-brown transition">Café em Grão</a>
+                <a href="#reservas" class="hover:text-ritual-brown transition">Reservar Mesa</a>
+                <a href="#localizacao" class="hover:text-ritual-brown transition">Localização</a>
+            </nav>
+
+            <!-- Botões Direita: Instagram e Sacola de Pedidos -->
+            <div class="flex items-center gap-2.5">
+                <a href="https://www.instagram.com/ritualspecialtycoffee?dmpr=MWVrenV4enk3YW1zaQ==" target="_blank" rel="noopener noreferrer"
+                   aria-label="Instagram Ritual Specialty Coffee"
+                   class="w-10 h-10 rounded-full bg-white border border-ritual-sand flex items-center justify-center text-ritual-brown hover:-translate-y-0.5 hover:shadow-soft hover:bg-ritual-brown hover:text-white transition">
+                    <i class="fa-brands fa-instagram text-base"></i>
+                </a>
+
+                <button type="button" onclick="toggleCart()" class="relative h-10 px-3.5 sm:px-4 rounded-full bg-ritual-brown hover:bg-ritual-espresso hover:-translate-y-0.5 hover:shadow-card text-white flex items-center gap-2 shadow-soft transition" aria-label="Abrir sacola de pedidos">
+                    <i class="fa-solid fa-bag-shopping text-sm"></i>
+                    <span class="hidden sm:inline text-xs font-semibold tracking-wide">Pedido</span>
+                    <span id="cart-count-top" class="bg-ritual-beige text-ritual-espresso text-[11px] font-bold w-5 h-5 rounded-full flex items-center justify-center transition-transform">0</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu Mobile Expansível -->
+        <div id="mobile-menu" class="hidden md:hidden bg-ritual-beige border-t border-ritual-sand px-5 py-4 space-y-2.5 shadow-lg">
+            <a href="#inicio" onclick="toggleMobileMenu()" class="block py-2 text-xs font-semibold uppercase tracking-wider text-ritual-espresso hover:text-ritual-brown">Início</a>
+            <a href="#cardapio" onclick="toggleMobileMenu()" class="block py-2 text-xs font-semibold uppercase tracking-wider text-ritual-espresso hover:text-ritual-brown">Cardápio Completo</a>
+            <a href="#para-levar" onclick="toggleMobileMenu()" class="block py-2 text-xs font-semibold uppercase tracking-wider text-ritual-espresso hover:text-ritual-brown">Café Para Levar</a>
+            <a href="#reservas" onclick="toggleMobileMenu()" class="block py-2 text-xs font-semibold uppercase tracking-wider text-ritual-espresso hover:text-ritual-brown">Reservar Mesa</a>
+            <a href="#localizacao" onclick="toggleMobileMenu()" class="block py-2 text-xs font-semibold uppercase tracking-wider text-ritual-espresso hover:text-ritual-brown">Localização &amp; Contato</a>
+        </div>
+    </header>
+
+    <!-- ==================== SEÇÃO PRINCIPAL ==================== -->
+    <main id="inicio" class="max-w-6xl mx-auto px-4 sm:px-6 pt-5 sm:pt-8">
+
+        <!-- Barra de Pesquisa Rápida no Cardápio -->
+        <div class="max-w-2xl mx-auto mb-6">
+            <div class="relative flex items-center">
+                <i class="fa-solid fa-magnifying-glass absolute left-4 text-ritual-taupe text-sm"></i>
+                <input type="text" id="menu-search" oninput="handleSearch(this.value)"
+                       placeholder="Pesquisar café, V60, gelado, café em grão..."
+                       class="w-full pl-11 pr-10 py-3.5 rounded-full bg-white border border-ritual-sand text-sm text-ritual-espresso placeholder-ritual-taupe/80 shadow-soft focus:outline-none focus:border-ritual-brown transition">
+                <button type="button" id="clear-search-btn" onclick="clearSearch()" class="hidden absolute right-3.5 w-7 h-7 rounded-full bg-ritual-sand/70 text-ritual-slate hover:text-ritual-espresso flex items-center justify-center text-xs" aria-label="Limpar pesquisa">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Banner Hero em Cartão Arredondado (Castanho & Cinza Quente) -->
+        <section class="relative rounded-3xl overflow-hidden bg-gradient-to-br from-ritual-espresso via-ritual-brown to-ritual-taupe text-white shadow-card mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 items-center">
+                <!-- Texto Esquerdo -->
+                <div class="md:col-span-7 p-7 sm:p-10 lg:p-12 z-10">
+                    <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-ritual-sand text-[11px] font-medium tracking-wider uppercase mb-3">
+                        <i class="fa-solid fa-seedling text-ritual-latte"></i> Origem Ética &bull; Torra Artesanal
+                    </span>
+                    <p class="font-script text-2xl sm:text-3xl text-ritual-sand mb-0.5">Bom Café, Boas Vibrações</p>
+                    <h1 class="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl leading-tight mb-3">
+                        O Seu Ritual Diário de Café Especial
+                    </h1>
+                    <p class="text-ritual-sand/90 text-xs sm:text-sm max-w-md leading-relaxed mb-6">
+                        Grãos de origem ética torrados com atenção pela <span class="font-semibold text-white">@cedarcoffeeroasters</span>. Peça agora pelo WhatsApp ou reserve a sua mesa na R. José Mateus.
+                    </p>
+                    <div class="flex flex-wrap items-center gap-3">
+                        <a href="#cardapio" class="group/btn inline-flex items-center gap-2.5 bg-ritual-beige hover:bg-white hover:-translate-y-0.5 hover:shadow-card text-ritual-espresso font-bold text-xs uppercase tracking-wider px-6 py-3.5 rounded-full shadow-md transition">
+                            <span>Pedir Agora</span>
+                            <span class="w-5 h-5 rounded-full bg-ritual-brown text-white flex items-center justify-center text-[10px] transition-transform duration-200 group-hover/btn:translate-x-0.5">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </span>
+                        </a>
+                        <a href="#reservas" class="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 hover:-translate-y-0.5 text-white border border-white/25 font-semibold text-xs uppercase tracking-wider px-5 py-3.5 rounded-full transition">
+                            <i class="fa-regular fa-calendar-check"></i>
+                            <span>Reservar Mesa</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Imagem Direita -->
+                <div class="md:col-span-5 h-60 sm:h-72 md:h-full relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80"
+                         onerror="this.onerror=null; this.src='https://placehold.co/600x500/4A2E1B/F5F0E8?text=Ritual+Specialty+Coffee';"
+                         alt="Chávena de Latte Art Ritual Specialty Coffee"
+                         class="w-full h-full object-cover object-center opacity-95">
+                    <div class="hidden md:block absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-ritual-brown/80 to-transparent"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categorias em Ícones Circulares -->
+        <section class="mb-10">
+            <div class="flex items-center justify-start sm:justify-center gap-4 sm:gap-7 overflow-x-auto no-scrollbar py-2 px-1">
+                <button type="button" onclick="filterCategory('todos')" data-cat="todos" class="cat-pill flex flex-col items-center gap-2 flex-shrink-0 group focus:outline-none">
+                    <div class="pill-circle w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-ritual-brown text-white flex items-center justify-center shadow-soft group-hover:-translate-y-1 transition duration-200">
+                        <i class="fa-solid fa-border-all text-lg"></i>
+                    </div>
+                    <span class="pill-label text-xs font-semibold text-ritual-espresso transition-colors">Todos</span>
+                </button>
+
+                <button type="button" onclick="filterCategory('quentes')" data-cat="quentes" class="cat-pill flex flex-col items-center gap-2 flex-shrink-0 group focus:outline-none">
+                    <div class="pill-circle w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white text-ritual-brown border border-ritual-sand group-hover:border-ritual-brown group-hover:-translate-y-1 group-hover:shadow-card flex items-center justify-center shadow-soft transition duration-200">
+                        <i class="fa-solid fa-mug-hot text-lg"></i>
+                    </div>
+                    <span class="pill-label text-xs font-medium text-ritual-slate group-hover:text-ritual-espresso transition-colors">Espresso &amp; Leite</span>
+                </button>
+
+                <button type="button" onclick="filterCategory('especiais')" data-cat="especiais" class="cat-pill flex flex-col items-center gap-2 flex-shrink-0 group focus:outline-none">
+                    <div class="pill-circle w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white text-ritual-brown border border-ritual-sand group-hover:border-ritual-brown group-hover:-translate-y-1 group-hover:shadow-card flex items-center justify-center shadow-soft transition duration-200">
+                        <i class="fa-solid fa-filter text-lg"></i>
+                    </div>
+                    <span class="pill-label text-xs font-medium text-ritual-slate group-hover:text-ritual-espresso transition-colors">V60 &amp; Especiais</span>
+                </button>
+
+                <button type="button" onclick="filterCategory('gelados')" data-cat="gelados" class="cat-pill flex flex-col items-center gap-2 flex-shrink-0 group focus:outline-none">
+                    <div class="pill-circle w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white text-ritual-brown border border-ritual-sand group-hover:border-ritual-brown group-hover:-translate-y-1 group-hover:shadow-card flex items-center justify-center shadow-soft transition duration-200">
+                        <i class="fa-solid fa-glass-water text-lg"></i>
+                    </div>
+                    <span class="pill-label text-xs font-medium text-ritual-slate group-hover:text-ritual-espresso transition-colors">Gelados</span>
+                </button>
+
+                <button type="button" onclick="filterCategory('levar')" data-cat="levar" class="cat-pill flex flex-col items-center gap-2 flex-shrink-0 group focus:outline-none">
+                    <div class="pill-circle w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white text-ritual-brown border border-ritual-sand group-hover:border-ritual-brown group-hover:-translate-y-1 group-hover:shadow-card flex items-center justify-center shadow-soft transition duration-200">
+                        <i class="fa-solid fa-bag-shopping text-lg"></i>
+                    </div>
+                    <span class="pill-label text-xs font-medium text-ritual-slate group-hover:text-ritual-espresso transition-colors">Para Levar</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- ==================== CARDÁPIO OFICIAL (PREÇOS EM MZN) ==================== -->
+        <section id="cardapio" class="mb-12">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-6">
+                <div>
+                    <span class="text-[11px] font-bold uppercase tracking-[0.2em] text-ritual-taupe">Specialty Coffee</span>
+                    <h2 class="font-serif font-bold text-2xl sm:text-3xl text-ritual-espresso">Cardápio Café (Especial)</h2>
+                </div>
+
+                <!-- Seletor Rápido de Leite de Aveia (+70 MZN) -->
+                <label class="inline-flex items-center gap-2.5 bg-white px-4 py-2.5 rounded-full border border-ritual-sand shadow-xs cursor-pointer select-none hover:border-ritual-brown transition">
+                    <input type="checkbox" id="oat-milk-toggle" onchange="toggleOatMilkGlobal()" class="w-4 h-4 accent-[#4A2E1B] rounded">
+                    <span class="text-xs font-medium text-ritual-espresso">
+                        Adicionar <strong class="text-ritual-brown">Leite de Aveia / Oat Milk</strong> <span class="text-ritual-taupe font-semibold">(+70 MZN / +1 item)</span>
+                    </span>
+                </label>
+            </div>
+
+            <!-- Grade de Bebidas do Cardápio -->
+            <div id="drinks-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                <!-- Renderizado via JavaScript -->
+            </div>
+
+            <!-- Faixa de Origem Ética -->
+            <div class="mt-8 bg-ritual-espresso text-ritual-beige rounded-2xl px-6 py-4 text-center shadow-soft flex flex-col sm:flex-row items-center justify-center gap-2 text-xs sm:text-sm">
+                <i class="fa-solid fa-award text-ritual-latte text-base"></i>
+                <p class="italic">
+                    O nosso café é de origem ética e torrado com atenção pela <strong class="not-italic text-white">@cedarcoffeeroasters</strong>.
+                </p>
+            </div>
+        </section>
+
+        <!-- ==================== CAFÉ PARA LEVAR (COFFEE TO TAKE) ==================== -->
+        <section id="para-levar" class="mb-14">
+            <div class="bg-ritual-sand/70 border border-ritual-taupe/20 rounded-3xl p-6 sm:p-8">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6">
+                    <div>
+                        <span class="text-[11px] font-bold uppercase tracking-[0.2em] text-ritual-taupe">Coffee To Take</span>
+                        <h2 class="font-serif font-bold text-2xl sm:text-3xl text-ritual-espresso">Café Para Levar</h2>
+                    </div>
+                    <p class="text-xs text-ritual-slate">Prepare a experiência Ritual na sua casa ou escritório.</p>
+                </div>
+
+                <div id="takeaway-grid" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <!-- Renderizado via JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== RESERVA DE MESAS ==================== -->
+        <section id="reservas" class="mb-14">
+            <div class="bg-white rounded-3xl shadow-card border border-ritual-sand overflow-hidden grid grid-cols-1 lg:grid-cols-12">
+                <!-- Coluna Informativa Cinza/Castanho -->
+                <div class="lg:col-span-5 bg-ritual-taupe text-white p-7 sm:p-9 flex flex-col justify-between">
+                    <div>
+                        <span class="text-[11px] font-bold uppercase tracking-[0.2em] text-ritual-sand">Experiência no Espaço</span>
+                        <h2 class="font-serif font-bold text-2xl sm:text-3xl mt-1 mb-3">Reserve a Sua Mesa</h2>
+                        <p class="text-xs sm:text-sm text-ritual-beige/90 leading-relaxed mb-6">
+                            Garanta o seu lugar para desfrutar de um café filtrado V60 preparado na hora, trabalhar com tranquilidade ou encontrar amigos.
+                        </p>
+                        <ul class="space-y-3 text-xs text-ritual-beige">
+                            <li class="flex items-center gap-2.5">
+                                <i class="fa-solid fa-check text-ritual-sand"></i>
+                                <span>Confirmação rápida diretamente pelo WhatsApp</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <i class="fa-solid fa-check text-ritual-sand"></i>
+                                <span>Ambiente acolhedor com Wi-Fi disponível</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <i class="fa-solid fa-check text-ritual-sand"></i>
+                                <span>Opções de leite vegetal (Oat Milk) disponíveis</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-8 pt-5 border-t border-white/20 flex items-center justify-between">
+                        <div>
+                            <p class="text-[11px] uppercase tracking-wider text-ritual-sand">WhatsApp Oficial</p>
+                            <p class="font-serif font-bold text-lg">+258 86 216 8282</p>
+                        </div>
+                        <a href="https://wa.me/258862168282" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-full bg-green-600 hover:bg-green-700 hover:-translate-y-0.5 hover:scale-105 text-white flex items-center justify-center text-xl shadow-md transition" aria-label="WhatsApp Ritual">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Formulário de Reserva -->
+                <div class="lg:col-span-7 p-7 sm:p-9">
+                    <form onsubmit="submitReservation(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="res-name" class="block text-xs font-semibold text-ritual-espresso mb-1">Seu Nome *</label>
+                                <input type="text" id="res-name" required placeholder="Ex: Ana Paula" class="w-full px-4 py-2.5 rounded-xl bg-ritual-beige/60 border border-ritual-sand text-sm text-ritual-espresso focus:outline-none focus:border-ritual-brown">
+                            </div>
+                            <div>
+                                <label for="res-phone" class="block text-xs font-semibold text-ritual-espresso mb-1">Telefone / WhatsApp *</label>
+                                <input type="tel" id="res-phone" required placeholder="Ex: 84 000 0000" class="w-full px-4 py-2.5 rounded-xl bg-ritual-beige/60 border border-ritual-sand text-sm text-ritual-espresso focus:outline-none focus:border-ritual-brown">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div>
+                                <label for="res-date" class="block text-xs font-semibold text-ritual-espresso mb-1">Data *</label>
+                                <input type="date" id="res-date" required class="w-full px-4 py-2.5 rounded-xl bg-ritual-beige/60 border border-ritual-sand text-sm text-ritual-espresso focus:outline-none focus:border-ritual-brown">
+                            </div>
+                            <div>
+                                <label for="res-time" class="block text-xs font-semibold text-ritual-espresso mb-1">Hora *</label>
+                                <input type="time" id="res-time" required value="10:30" class="w-full px-4 py-2.5 rounded-xl bg-ritual-beige/60 border border-ritual-sand text-sm text-ritual-espresso focus:outline-none focus:border-ritual-brown">
+                            </div>
+                            <div>
+                                <label for="res-guests" class="block text-xs font-semibold text-ritual-espresso mb-1">Pessoas *</label>
+                                <select id="res-guests" class="w-full px-4 py-2.5 rounded-xl bg-ritual-beige/60 border border-ritual-sand text-sm text-ritual-espresso focus:outline-none focus:border-ritual-brown">
+                                    <option value="1 Pessoa">1 Pessoa</option>
+                                    <option value="2 Pessoas" selected>2 Pessoas</option>
+                                    <option value="3 Pessoas">3 Pessoas</option>
+                                    <option value="4 Pessoas">4 Pessoas</option>
+                                    <option value="5+ Pessoas">5+ Pessoas</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="res-notes" class="block text-xs font-semibold text-ritual-espresso mb-1">Observações (Opcional)</label>
+                            <input type="text" id="res-notes" placeholder="Ex: Mesa próxima à tomada, preferência de horário..." class="w-full px-4 py-2.5 rounded-xl bg-ritual-beige/60 border border-ritual-sand text-sm text-ritual-espresso focus:outline-none focus:border-ritual-brown">
+                        </div>
+
+                        <button type="submit" class="w-full bg-ritual-brown hover:bg-ritual-espresso hover:-translate-y-0.5 hover:shadow-card text-white font-semibold text-xs uppercase tracking-widest py-3.5 rounded-full shadow-soft transition flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-base text-green-400"></i>
+                            <span>Confirmar Reserva no WhatsApp</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== LOCALIZAÇÃO & COMO CHEGAR ==================== -->
+        <section id="localizacao" class="mb-14">
+            <div class="bg-ritual-sand/75 border border-ritual-taupe/20 rounded-3xl p-6 sm:p-9 shadow-soft grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                <div class="lg:col-span-7 space-y-3">
+                    <span class="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-ritual-taupe">
+                        <i class="fa-solid fa-location-dot text-ritual-brown"></i> Visite-nos em Maputo
+                    </span>
+                    <h2 class="font-serif font-bold text-2xl sm:text-3xl text-ritual-espresso">Onde Estamos Localizados</h2>
+                    <p class="text-sm sm:text-base font-semibold text-ritual-brown">
+                        R. José Mateus, Maputo <span class="font-normal text-ritual-slate">(Atrás do Polana Shopping)</span>
+                    </p>
+                    <p class="text-xs sm:text-sm text-ritual-slate leading-relaxed max-w-xl">
+                        Venha saborear o seu café especial preparado na hora ou levantar a sua encomenda. Estamos situados numa zona tranquila e de fácil acesso na R. José Mateus, logo atrás do Polana Shopping.
+                    </p>
+                    <div class="pt-2 flex flex-wrap items-center gap-3">
+                        <a href="https://maps.app.goo.gl/8MqhBpcDxX9mA2p98" target="_blank" rel="noopener noreferrer"
+                           class="inline-flex items-center gap-2.5 bg-ritual-brown hover:bg-ritual-espresso hover:-translate-y-0.5 hover:shadow-card text-white font-semibold text-xs uppercase tracking-wider px-5 py-3.5 rounded-full shadow-soft transition">
+                            <i class="fa-solid fa-map-location-dot text-sm text-ritual-sand"></i>
+                            <span>Abrir no Google Maps</span>
+                        </a>
+                        <a href="https://wa.me/258862168282?text=Ol%C3%A1!%20Gostaria%20de%20confirmar%20a%20localiza%C3%A7%C3%A3o%20da%20Ritual%20Specialty%20Coffee." target="_blank" rel="noopener noreferrer"
+                           class="inline-flex items-center gap-2 bg-white hover:bg-ritual-beige hover:-translate-y-0.5 text-ritual-espresso border border-ritual-sand font-semibold text-xs uppercase tracking-wider px-5 py-3.5 rounded-full transition">
+                            <i class="fa-brands fa-whatsapp text-green-600 text-sm"></i>
+                            <span>Pedir Referência</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Cartão Visual de Ponto de Referência -->
+                <div class="lg:col-span-5 bg-white rounded-2xl p-5 border border-ritual-sand shadow-xs space-y-3.5">
+                    <div class="flex items-start gap-3">
+                        <div class="w-10 h-10 rounded-full bg-ritual-brown/10 text-ritual-brown flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <i class="fa-solid fa-map-pin text-base"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-serif font-bold text-base text-ritual-espresso">Endereço Oficial</h3>
+                            <p class="text-xs text-ritual-slate mt-0.5">R. José Mateus, Maputo — Moçambique</p>
+                            <span class="inline-block mt-1.5 text-[11px] font-semibold text-ritual-brown bg-ritual-beige px-2.5 py-0.5 rounded-full border border-ritual-sand">
+                                Referência: Atrás do Polana Shopping
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="pt-3 border-t border-ritual-beige flex items-center justify-between text-xs">
+                        <span class="text-ritual-taupe font-medium">Navegação GPS Direta:</span>
+                        <a href="https://maps.app.goo.gl/8MqhBpcDxX9mA2p98" target="_blank" rel="noopener noreferrer" class="font-semibold text-ritual-brown hover:underline inline-flex items-center gap-1">
+                            <span>Ver Rota no Mapa</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==================== RODAPÉ & INFORMAÇÕES DO DESENVOLVEDOR ==================== -->
+    <footer id="sobre" class="bg-ritual-espresso text-ritual-beige pt-12 pb-8 px-4 sm:px-6 border-t border-ritual-brown">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-white/10 items-start">
+
+                <!-- Marca & Redes Sociais -->
+                <div class="md:col-span-5 space-y-3">
+                    <div class="inline-block bg-ritual-taupe px-4 py-2 rounded-xl">
+                        <span class="font-script text-2xl text-white tracking-wide">Ritual</span>
+                        <span class="block text-[9px] uppercase tracking-[0.28em] text-white/90 -mt-1">Specialty Coffee</span>
+                    </div>
+                    <p class="text-xs text-ritual-sand/80 leading-relaxed max-w-sm">
+                        Cafeteria de especialidade dedicada à extração precisa e grãos de origem ética torrados pela @cedarcoffeeroasters.
+                    </p>
+                    <p class="text-xs text-ritual-sand/90 flex items-start gap-2">
+                        <i class="fa-solid fa-location-dot text-ritual-latte mt-0.5"></i>
+                        <span>R. José Mateus, Maputo (Atrás do Polana Shopping) &bull; <a href="https://maps.app.goo.gl/8MqhBpcDxX9mA2p98" target="_blank" rel="noopener noreferrer" class="underline hover:text-white">Google Maps</a></span>
+                    </p>
+                    <div class="flex items-center gap-3 pt-1">
+                        <a href="https://wa.me/258862168282" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-white/10 hover:bg-green-600 hover:-translate-y-0.5 text-white text-xs font-medium transition">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <span>86 216 8282</span>
+                        </a>
+                        <a href="https://www.instagram.com/ritualspecialtycoffee?dmpr=MWVrenV4enk3YW1zaQ==" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-white/10 hover:bg-ritual-taupe hover:-translate-y-0.5 text-white text-xs font-medium transition">
+                            <i class="fa-brands fa-instagram"></i>
+                            <span>@ritualspecialtycoffee</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Atalhos Rápidos -->
+                <div class="md:col-span-3 space-y-2 text-xs">
+                    <h3 class="font-serif font-bold text-sm text-white mb-2">Navegação</h3>
+                    <ul class="space-y-2 text-ritual-sand/80">
+                        <li><a href="#inicio" class="hover:text-white transition">Início</a></li>
+                        <li><a href="#cardapio" class="hover:text-white transition">Cardápio Especial</a></li>
+                        <li><a href="#para-levar" class="hover:text-white transition">Café Para Levar</a></li>
+                        <li><a href="#reservas" class="hover:text-white transition">Reservar Mesa</a></li>
+                        <li><a href="#localizacao" class="hover:text-white transition">Localização (Maps)</a></li>
+                    </ul>
+                </div>
+
+                <!-- Cartão do Desenvolvedor (Com Foto em Bolha) -->
+                <div class="md:col-span-4 bg-white/5 border border-white/10 rounded-2xl p-4 flex items-center gap-4">
+                    <!-- Foto em Bolha Circular Embutida -->
+                    <div class="w-16 h-16 sm:w-18 sm:h-18 rounded-full overflow-hidden border-2 border-ritual-latte flex-shrink-0 shadow-md bg-ritual-taupe">
+                        <svg viewBox="0 0 120 120" class="w-full h-full" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bernardo Joaquim Júnior">
+                            <defs>
+                                <linearGradient id="devBg" x1="0" y1="0" x2="1" y2="1">
+                                    <stop offset="0%" stop-color="#E7C27D"/>
+                                    <stop offset="100%" stop-color="#C89F5D"/>
+                                </linearGradient>
+                            </defs>
+                            <rect width="120" height="120" fill="url(#devBg)"/>
+                            <path d="M16 120 C20 96, 38 88, 60 88 C82 88, 100 96, 104 120 Z" fill="#18181B"/>
+                            <path d="M46 89 L60 100 L74 89" fill="none" stroke="#27272A" stroke-width="2.5"/>
+                            <path d="M60 105 L53 115 M60 105 L67 115 M60 104 L60 118" stroke="#F4F4F5" stroke-width="1.6" stroke-linecap="round"/>
+                            <rect x="49" y="70" width="22" height="22" rx="8" fill="#5A3826"/>
+                            <path d="M35 44 C33 27, 44 17, 60 17 C76 17, 87 27, 85 44 C86 35, 78 29, 60 29 C42 29, 34 35, 35 44 Z" fill="#1C1410"/>
+                            <circle cx="43" cy="24" r="6" fill="#1C1410"/>
+                            <circle cx="53" cy="20" r="7" fill="#1C1410"/>
+                            <circle cx="65" cy="20" r="7" fill="#1C1410"/>
+                            <circle cx="76" cy="24" r="6" fill="#1C1410"/>
+                            <path d="M37 42 C37 29, 83 29, 83 42 L82 60 C82 74, 71 81, 60 81 C49 81, 38 74, 38 60 Z" fill="#68412C"/>
+                            <ellipse cx="36" cy="54" rx="3.2" ry="5.5" fill="#5A3826"/>
+                            <ellipse cx="84" cy="54" rx="3.2" ry="5.5" fill="#5A3826"/>
+                            <path d="M43 44 Q49 41.5 55 44" fill="none" stroke="#1C1410" stroke-width="2.2" stroke-linecap="round"/>
+                            <path d="M65 44 Q71 41.5 77 44" fill="none" stroke="#1C1410" stroke-width="2.2" stroke-linecap="round"/>
+                            <ellipse cx="49" cy="50" rx="3.3" ry="2.2" fill="#FFFFFF"/>
+                            <circle cx="49.5" cy="50" r="1.7" fill="#1C1410"/>
+                            <ellipse cx="71" cy="50" rx="3.3" ry="2.2" fill="#FFFFFF"/>
+                            <circle cx="71.5" cy="50" r="1.7" fill="#1C1410"/>
+                            <rect x="40" y="45" width="17" height="11.5" rx="4" fill="#FFFFFF" fill-opacity="0.14" stroke="#E5D7C1" stroke-width="1.8"/>
+                            <rect x="63" y="45" width="17" height="11.5" rx="4" fill="#FFFFFF" fill-opacity="0.14" stroke="#E5D7C1" stroke-width="1.8"/>
+                            <path d="M57 49.5 Q60 48 63 49.5" fill="none" stroke="#E5D7C1" stroke-width="1.8"/>
+                            <path d="M60 49 L58.5 59 Q60 61 62 59" fill="none" stroke="#4A2C1D" stroke-width="1.7" stroke-linecap="round"/>
+                            <path d="M52 67 Q60 69.5 68 67" fill="none" stroke="#3B2115" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M47 73 Q60 80 73 73" fill="none" stroke="#1C1410" stroke-width="2.2" stroke-linecap="round" opacity="0.75"/>
+                        </svg>
+                    </div>
+                    <div class="min-w-0">
+                        <span class="text-[10px] uppercase tracking-widest text-ritual-latte font-semibold block">Desenvolvido por</span>
+                        <h4 class="font-serif font-bold text-sm text-white truncate">Bernardo Joaquim Júnior</h4>
+                        <a href="mailto:bernardogalaxy555@gmail.com" class="block text-[11px] text-ritual-sand/85 hover:text-white truncate mt-1">
+                            <i class="fa-regular fa-envelope mr-1 text-ritual-latte"></i>bernardogalaxy555@gmail.com
+                        </a>
+                        <a href="https://wa.me/258861996675" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[11px] text-ritual-sand/85 hover:text-green-400 mt-0.5">
+                            <i class="fa-brands fa-whatsapp text-green-400"></i>
+                            <span>+258 86 199 6675</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-ritual-sand/60">
+                <p>&copy; 2026 Ritual Specialty Coffee. Todos os direitos reservados.</p>
+                <p>R. José Mateus (Atrás do Polana Shopping) &bull; Maputo, Moçambique</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== BARRA INFERIOR FIXA MOBILE ==================== -->
+    <nav class="md:hidden fixed bottom-0 inset-x-0 z-30 bg-white/95 backdrop-blur-md border-t border-ritual-sand px-3 py-2 flex items-center justify-around shadow-lg">
+        <a href="#inicio" class="flex flex-col items-center gap-0.5 text-ritual-brown">
+            <i class="fa-solid fa-house text-base"></i>
+            <span class="text-[10px] font-semibold">Início</span>
+        </a>
+        <a href="#cardapio" class="flex flex-col items-center gap-0.5 text-ritual-slate hover:text-ritual-brown">
+            <i class="fa-solid fa-mug-hot text-base"></i>
+            <span class="text-[10px] font-medium">Cardápio</span>
+        </a>
+        <button type="button" onclick="toggleCart()" class="relative -mt-6 w-14 h-14 rounded-full bg-ritual-brown text-white shadow-card flex flex-col items-center justify-center border-4 border-ritual-beige" aria-label="Ver Pedido">
+            <i class="fa-solid fa-bag-shopping text-base"></i>
+            <span id="cart-count-mobile" class="text-[9px] font-bold leading-none mt-0.5">0</span>
+        </button>
+        <a href="#localizacao" class="flex flex-col items-center gap-0.5 text-ritual-slate hover:text-ritual-brown">
+            <i class="fa-solid fa-location-dot text-base"></i>
+            <span class="text-[10px] font-medium">Mapa</span>
+        </a>
+        <a href="https://wa.me/258862168282" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-0.5 text-green-700">
+            <i class="fa-brands fa-whatsapp text-base"></i>
+            <span class="text-[10px] font-semibold">WhatsApp</span>
+        </a>
+    </nav>
+
+    <!-- ==================== GAVETA LATERAL DA SACOLA DE PEDIDOS ==================== -->
+    <div id="cart-overlay" onclick="toggleCart()" class="fixed inset-0 bg-black/50 backdrop-blur-xs z-50 hidden"></div>
+    <aside id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-ritual-beige shadow-2xl z-50 transform translate-x-full transition-transform duration-300 flex flex-col">
+        <!-- Cabeçalho -->
+        <div class="p-5 bg-ritual-espresso text-white flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+                <i class="fa-solid fa-mug-hot text-ritual-latte"></i>
+                <h3 class="font-serif font-bold text-lg">O Seu Pedido</h3>
+            </div>
+            <button type="button" onclick="toggleCart()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition" aria-label="Fechar">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <!-- Lista de Itens -->
+        <div id="cart-list" class="flex-grow overflow-y-auto p-5 space-y-3">
+            <!-- Renderizado dinamicamente -->
+        </div>
+
+        <!-- Checkout WhatsApp -->
+        <div class="p-5 bg-white border-t border-ritual-sand space-y-3">
+            <div id="cart-oat-summary" class="hidden items-center justify-between text-xs text-ritual-taupe bg-ritual-beige/70 px-3 py-2 rounded-xl border border-ritual-sand/80">
+                <span>Leite de Aveia (<span id="cart-oat-count">0</span>x &times; 70 MZN / +<span id="cart-oat-items">0</span> itens):</span>
+                <span id="cart-oat-total" class="font-semibold text-ritual-brown">0 MZN</span>
+            </div>
+
+            <div class="flex items-center justify-between text-sm font-bold text-ritual-espresso pb-2 border-b border-ritual-sand">
+                <span>Total do Pedido:</span>
+                <span id="cart-total" class="font-serif text-xl text-ritual-brown">0 MZN</span>
+            </div>
+
+            <input type="text" id="order-customer" placeholder="Seu Nome *" class="w-full px-3.5 py-2.5 rounded-xl bg-ritual-beige/70 border border-ritual-sand text-xs text-ritual-espresso focus:outline-none focus:border-ritual-brown">
+
+            <div class="grid grid-cols-2 gap-2">
+                <select id="order-delivery" onchange="toggleAddressField()" class="w-full px-3 py-2.5 rounded-xl bg-ritual-beige/70 border border-ritual-sand text-xs text-ritual-espresso focus:outline-none focus:border-ritual-brown">
+                    <option value="Levantamento no Café">Levantamento no Café</option>
+                    <option value="Entrega (Delivery)">Entrega (Delivery)</option>
+                </select>
+                <select id="order-payment" class="w-full px-3 py-2.5 rounded-xl bg-ritual-beige/70 border border-ritual-sand text-xs text-ritual-espresso focus:outline-none focus:border-ritual-brown">
+                    <option value="M-Pesa">M-Pesa</option>
+                    <option value="e-Mola">e-Mola</option>
+                    <option value="POS / Cartão">POS / Cartão</option>
+                    <option value="Dinheiro">Dinheiro</option>
+                </select>
+            </div>
+
+            <input type="text" id="order-address" placeholder="Endereço / Bairro para entrega *" class="hidden w-full px-3.5 py-2.5 rounded-xl bg-ritual-beige/70 border border-ritual-sand text-xs text-ritual-espresso focus:outline-none focus:border-ritual-brown">
+            <input type="text" id="order-notes" placeholder="Observações (opcional)" class="w-full px-3.5 py-2 rounded-xl bg-ritual-beige/70 border border-ritual-sand text-xs text-ritual-espresso focus:outline-none focus:border-ritual-brown">
+
+            <button type="button" onclick="sendOrderWhatsApp()" class="w-full bg-green-600 hover:bg-green-700 hover:-translate-y-0.5 hover:shadow-card text-white font-semibold text-xs uppercase tracking-widest py-3.5 rounded-full shadow-soft transition flex items-center justify-center gap-2">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+                <span>Enviar Pedido no WhatsApp</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- ==================== NOTIFICAÇÃO TOAST ==================== -->
+    <div id="toast" class="fixed top-20 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 transition-all duration-300 transform -translate-y-2">
+        <div class="bg-ritual-espresso text-white px-4 py-2.5 rounded-full shadow-xl border border-ritual-latte/40 flex items-center gap-2 text-xs font-medium">
+            <i id="toast-icon" class="fa-solid fa-circle-check text-ritual-latte"></i>
+            <span id="toast-text">Mensagem</span>
+        </div>
+    </div>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        // WhatsApp Oficial da Ritual Specialty Coffee (+258 86 216 8282)
+        const RITUAL_WHATSAPP = "258862168282";
+        const OAT_MILK_PRICE = 70;
+
+        // Cardápio Oficial da Ritual Specialty Coffee (Preços base em MZN)
+        const menuData = [
+            {
+                id: 1,
+                nome: "Ritual Espresso",
+                categoria: "quentes",
+                preco: 180,
+                badge: "Clássico",
+                descricao: "Extração pura e equilibrada dos nossos grãos especiais.",
+                imagem: "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 2,
+                nome: "Americano",
+                categoria: "quentes",
+                preco: 200,
+                badge: "",
+                descricao: "Duplo espresso suavizado com água quente filtrada.",
+                imagem: "https://images.unsplash.com/photo-1551030173-122aabc4489c?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 3,
+                nome: "Macchiato",
+                categoria: "quentes",
+                preco: 230,
+                badge: "",
+                descricao: "Espresso marcado com uma delicada espuma de leite vaporizado.",
+                imagem: "https://images.unsplash.com/photo-1485808191679-5f86510681a2?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 4,
+                nome: "Cortado",
+                categoria: "quentes",
+                preco: 240,
+                badge: "Popular",
+                descricao: "Proporção igual entre espresso intenso e leite sedoso.",
+                imagem: "https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 5,
+                nome: "Flat White",
+                categoria: "quentes",
+                preco: 250,
+                badge: "Favorito",
+                descricao: "Duplo ristretto coberto por microespuma aveludada.",
+                imagem: "https://images.unsplash.com/photo-1577968897966-3d4325b36b61?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 6,
+                nome: "Latte",
+                categoria: "quentes",
+                preco: 300,
+                badge: "",
+                descricao: "Espresso suave combinado com leite vaporizado cremoso.",
+                imagem: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 7,
+                nome: "Mocha",
+                categoria: "quentes",
+                preco: 350,
+                badge: "",
+                descricao: "Harmonização rica de espresso, cacau e leite vaporizado.",
+                imagem: "https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 8,
+                nome: "Café Filtrado | V60",
+                categoria: "especiais",
+                preco: 350,
+                badge: "Especial",
+                descricao: "Extração manual no método Hario V60 realçando notas florais e frutadas.",
+                imagem: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 9,
+                nome: "Decaf",
+                categoria: "especiais",
+                preco: 200,
+                badge: "",
+                descricao: "Todo o sabor do café especial sem cafeína.",
+                imagem: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 10,
+                nome: "Especial do Ritual",
+                categoria: "especiais",
+                preco: 380,
+                badge: "Assinatura",
+                descricao: "Criação exclusiva do barista com grãos selecionados da estação.",
+                imagem: "https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 11,
+                nome: "Espresso & Sorvete",
+                categoria: "especiais",
+                preco: 250,
+                badge: "Affogato",
+                descricao: "Espresso quente servido sobre uma bola cremosa de sorvete.",
+                imagem: "https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 12,
+                nome: "Café Gelado",
+                categoria: "gelados",
+                preco: 250,
+                badge: "Refrescante",
+                descricao: "Café especial extraído e arrefecido sobre cubos de gelo.",
+                imagem: "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 13,
+                nome: "Café Gelado + Leite",
+                categoria: "gelados",
+                preco: 300,
+                badge: "",
+                descricao: "Café gelado cremoso finalizado com leite fresco sobre gelo.",
+                imagem: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 14,
+                nome: "Café em Grão 250g",
+                categoria: "levar",
+                preco: 850,
+                badge: "250g",
+                descricao: "Pacote de 250g de café especial de origem ética torrado pela @cedarcoffeeroasters.",
+                imagem: "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 15,
+                nome: "Saqueta de Café",
+                categoria: "levar",
+                preco: 200,
+                badge: "Prático",
+                descricao: "Dose individual de café especial para preparar onde estiver.",
+                imagem: "https://images.unsplash.com/photo-1587734195503-904fca47e0e9?auto=format&fit=crop&w=600&q=80"
+            }
+        ];
+
+        let currentCategory = "todos";
+        let searchQuery = "";
+        let useOatMilk = false;
+        let itemOatOverrides = {};
+        let cart = [];
+
+        /**
+         * Inicializa o cardápio, a sacola e a data mínima da reserva.
+         */
+        window.addEventListener("DOMContentLoaded", () => {
+            try {
+                renderAll();
+                updateCartUI();
+                setMinDate();
+            } catch (err) {
+                console.error("Erro na inicialização:", err);
+            }
+        });
+
+        /**
+         * Define a data mínima da reserva para o dia atual.
+         */
+        function setMinDate() {
+            const dateInput = document.getElementById("res-date");
+            if (dateInput) {
+                const today = new Date().toISOString().split("T")[0];
+                dateInput.min = today;
+                dateInput.value = today;
+            }
+        }
+
+        /**
+         * Alterna o acréscimo global de Leite de Aveia (+70 MZN).
+         */
+        function toggleOatMilkGlobal() {
+            try {
+                const toggle = document.getElementById("oat-milk-toggle");
+                useOatMilk = Boolean(toggle && toggle.checked);
+                itemOatOverrides = {};
+                renderAll();
+                showToast(useOatMilk ? "Leite de Aveia (+70 MZN / +1 item) ativado nos cartões." : "Leite tradicional selecionado.");
+            } catch (err) {
+                console.error("Erro ao alternar Leite de Aveia:", err);
+            }
+        }
+
+        /**
+         * Verifica se o Leite de Aveia está ativo para um produto específico no cardápio.
+         * @param {number} id - ID do produto.
+         * @returns {boolean}
+         */
+        function isItemOatSelected(id) {
+            if (Object.prototype.hasOwnProperty.call(itemOatOverrides, id)) {
+                return Boolean(itemOatOverrides[id]);
+            }
+            return useOatMilk;
+        }
+
+        /**
+         * Alterna o Leite de Aveia (+70 MZN) individualmente num cartão do cardápio.
+         * @param {number} id - ID do produto.
+         */
+        function toggleCardOatMilk(id) {
+            try {
+                const current = isItemOatSelected(id);
+                itemOatOverrides[id] = !current;
+                renderAll();
+                showToast(!current ? "Leite de Aveia (+70 MZN / +1 item) selecionado." : "Leite de Aveia removido deste item.");
+            } catch (err) {
+                console.error("Erro ao alternar Leite de Aveia no cartão:", err);
+            }
+        }
+
+        /**
+         * Alterna o Leite de Aveia (+70 MZN / +1 item) diretamente num item já adicionado na sacola.
+         * @param {string} key - Chave atual do item na sacola.
+         */
+        function toggleItemOatMilk(key) {
+            try {
+                const idx = cart.findIndex(c => c.key === key);
+                if (idx === -1) return;
+
+                const currentItem = cart[idx];
+                const product = menuData.find(p => p.id === currentItem.productId);
+                if (!product) return;
+
+                const nextWithOat = !currentItem.withOat;
+                const nextKey = `${product.id}-${nextWithOat ? "oat" : "std"}`;
+                const nextName = nextWithOat ? `${product.nome} (+ Leite de Aveia)` : product.nome;
+
+                const existingTarget = cart.find(c => c.key === nextKey);
+                if (existingTarget) {
+                    existingTarget.qty += currentItem.qty;
+                    cart.splice(idx, 1);
+                } else {
+                    cart[idx] = {
+                        ...currentItem,
+                        key: nextKey,
+                        nome: nextName,
+                        basePreco: Number(product.preco),
+                        withOat: nextWithOat
+                    };
+                }
+
+                updateCartUI();
+                triggerBadgePop();
+                showToast(nextWithOat ? "Leite de Aveia (+70 MZN / +1 item) somado!" : "Leite de Aveia (-70 MZN) removido deste pedido.");
+            } catch (err) {
+                console.error("Erro ao alternar Leite de Aveia na sacola:", err);
+            }
+        }
+
+        /**
+         * Filtra os itens por categoria.
+         * @param {string} cat - Categoria selecionada.
+         */
+        function filterCategory(cat) {
+            currentCategory = cat;
+            document.querySelectorAll(".cat-pill").forEach(btn => {
+                const circle = btn.querySelector(".pill-circle");
+                const label = btn.querySelector(".pill-label");
+                if (!circle || !label) return;
+
+                if (btn.dataset.cat === cat) {
+                    circle.className = "pill-circle w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-ritual-brown text-white flex items-center justify-center shadow-soft transition duration-200";
+                    label.className = "pill-label text-xs font-semibold text-ritual-espresso";
+                } else {
+                    circle.className = "pill-circle w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white text-ritual-brown border border-ritual-sand group-hover:border-ritual-brown flex items-center justify-center shadow-soft transition duration-200";
+                    label.className = "pill-label text-xs font-medium text-ritual-slate";
+                }
+            });
+
+            if (cat === "levar") {
+                const section = document.getElementById("para-levar");
+                if (section) section.scrollIntoView({ behavior: "smooth", block: "nearest" });
+            }
+            renderAll();
+        }
+
+        /**
+         * Filtra os itens conforme o texto digitado na busca.
+         * @param {string} val - Termo pesquisado.
+         */
+        function handleSearch(val) {
+            searchQuery = (val || "").toLowerCase().trim();
+            const clearBtn = document.getElementById("clear-search-btn");
+            if (clearBtn) {
+                if (searchQuery.length > 0) {
+                    clearBtn.classList.remove("hidden");
+                } else {
+                    clearBtn.classList.add("hidden");
+                }
+            }
+            renderAll();
+        }
+
+        /**
+         * Limpa o campo de pesquisa.
+         */
+        function clearSearch() {
+            const input = document.getElementById("menu-search");
+            if (input) input.value = "";
+            handleSearch("");
+        }
+
+        /**
+         * Renderiza as grades de bebidas e de produtos para levar.
+         */
+        function renderAll() {
+            const drinksGrid = document.getElementById("drinks-grid");
+            const takeawayGrid = document.getElementById("takeaway-grid");
+            if (!drinksGrid || !takeawayGrid) return;
+
+            const filteredDrinks = menuData.filter(item => {
+                if (item.categoria === "levar") return false;
+                const matchesCat = currentCategory === "todos" || currentCategory === "levar" || item.categoria === currentCategory;
+                const matchesSearch = item.nome.toLowerCase().includes(searchQuery) || item.descricao.toLowerCase().includes(searchQuery);
+                return matchesCat && matchesSearch;
+            });
+
+            const filteredTakeaway = menuData.filter(item => {
+                if (item.categoria !== "levar") return false;
+                return item.nome.toLowerCase().includes(searchQuery) || item.descricao.toLowerCase().includes(searchQuery);
+            });
+
+            if (filteredDrinks.length === 0) {
+                drinksGrid.innerHTML = `
+                    <div class="col-span-full bg-white/70 rounded-2xl p-8 text-center border border-ritual-sand">
+                        <p class="font-serif font-bold text-lg text-ritual-espresso mb-1">Nenhuma bebida encontrada</p>
+                        <p class="text-xs text-ritual-taupe">Tente limpar a pesquisa ou selecionar outra categoria.</p>
+                    </div>
+                `;
+            } else {
+                drinksGrid.innerHTML = filteredDrinks.map(item => createItemCard(item)).join("");
+            }
+
+            takeawayGrid.innerHTML = filteredTakeaway.map(item => createTakeawayCard(item)).join("");
+        }
+
+        /**
+         * Cria o HTML de um cartão de bebida do cardápio.
+         * @param {Object} item - Dados da bebida.
+         * @returns {string} HTML do cartão.
+         */
+        function createItemCard(item) {
+            const oatActive = isItemOatSelected(item.id);
+            const finalPrice = Number(item.preco) + (oatActive ? OAT_MILK_PRICE : 0);
+
+            return `
+                <article class="menu-card-enter bg-white rounded-2xl p-4 shadow-soft border border-ritual-sand/80 flex flex-col justify-between hover:-translate-y-1 hover:shadow-card transition duration-300 group">
+                    <div>
+                        <div class="relative h-44 rounded-xl overflow-hidden mb-3.5 bg-ritual-sand">
+                            <img src="${item.imagem}"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/500x400/E8DFD3/4A2E1B?text=${encodeURIComponent(item.nome)}';"
+                                 alt="${item.nome}"
+                                 class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            ${item.badge ? `<span class="absolute top-2.5 left-2.5 bg-ritual-espresso/90 text-ritual-beige text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">${item.badge}</span>` : ""}
+                            ${oatActive ? `<span class="absolute bottom-2.5 right-2.5 bg-ritual-taupe text-white text-[10px] font-semibold px-2.5 py-0.5 rounded-full">+ Leite de Aveia (+1)</span>` : ""}
+                        </div>
+                        <h3 class="font-serif font-bold text-lg text-ritual-espresso leading-snug mb-1">${item.nome}</h3>
+                        <p class="text-xs text-ritual-taupe leading-relaxed mb-3">${item.descricao}</p>
+                    </div>
+
+                    <div class="pt-3 border-t border-ritual-beige flex items-center justify-between gap-2">
+                        <div>
+                            <span class="font-bold text-base text-ritual-espresso">${finalPrice} MZN</span>
+                            <button type="button" onclick="toggleCardOatMilk(${item.id})" class="mt-1 inline-flex items-center gap-1 text-[10px] font-semibold px-2.5 py-0.5 rounded-full border transition ${oatActive ? 'bg-ritual-taupe text-white border-ritual-taupe hover:bg-ritual-slate' : 'bg-ritual-beige text-ritual-brown border-ritual-sand hover:border-ritual-brown'}">
+                                <i class="fa-solid ${oatActive ? 'fa-xmark' : 'fa-plus'} text-[9px]"></i>
+                                <span>${oatActive ? 'Tirar Leite de Aveia' : 'Leite de Aveia (+70)'}</span>
+                            </button>
+                        </div>
+                        <button type="button" onclick="addToCart(${item.id})" class="w-9 h-9 rounded-full bg-ritual-brown hover:bg-ritual-espresso hover:scale-105 text-white flex items-center justify-center shadow-xs transition flex-shrink-0" aria-label="Adicionar ${item.nome}">
+                            <i class="fa-solid fa-plus text-xs transition-transform duration-200"></i>
+                        </button>
+                    </div>
+                </article>
+            `;
+        }
+
+        /**
+         * Cria o HTML de um cartão da secção Café Para Levar.
+         * @param {Object} item - Dados do produto para levar.
+         * @returns {string} HTML do cartão.
+         */
+        function createTakeawayCard(item) {
+            const oatActive = isItemOatSelected(item.id);
+            const finalPrice = Number(item.preco) + (oatActive ? OAT_MILK_PRICE : 0);
+
+            return `
+                <article class="menu-card-enter bg-white rounded-2xl p-4 shadow-soft border border-ritual-sand flex items-center gap-4 hover:-translate-y-0.5 hover:shadow-card transition">
+                    <div class="w-24 h-24 rounded-xl overflow-hidden bg-ritual-sand flex-shrink-0">
+                        <img src="${item.imagem}"
+                             onerror="this.onerror=null; this.src='https://placehold.co/300x300/E8DFD3/4A2E1B?text=${encodeURIComponent(item.nome)}';"
+                             alt="${item.nome}"
+                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                    </div>
+                    <div class="flex-grow min-w-0">
+                        <div class="flex items-center gap-2">
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-ritual-taupe">${item.badge}</span>
+                            ${oatActive ? `<span class="bg-ritual-taupe text-white text-[9px] font-semibold px-2 py-0.5 rounded-full">+ Leite de Aveia (+1)</span>` : ""}
+                        </div>
+                        <h3 class="font-serif font-bold text-lg text-ritual-espresso truncate">${item.nome}</h3>
+                        <p class="text-xs text-ritual-taupe line-clamp-2 mt-0.5 mb-2">${item.descricao}</p>
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <div>
+                                <span class="font-bold text-base text-ritual-brown block">${finalPrice} MZN</span>
+                                <button type="button" onclick="toggleCardOatMilk(${item.id})" class="mt-0.5 inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full border transition ${oatActive ? 'bg-ritual-taupe text-white border-ritual-taupe hover:bg-ritual-slate' : 'bg-ritual-beige text-ritual-brown border-ritual-sand hover:border-ritual-brown'}">
+                                    <i class="fa-solid ${oatActive ? 'fa-xmark' : 'fa-plus'} text-[9px]"></i>
+                                    <span>${oatActive ? 'Tirar Aveia' : 'Leite Aveia (+70)'}</span>
+                                </button>
+                            </div>
+                            <button type="button" onclick="addToCart(${item.id})" class="px-3.5 py-1.5 rounded-full bg-ritual-brown hover:bg-ritual-espresso hover:-translate-y-0.5 text-white text-xs font-semibold transition flex items-center gap-1.5">
+                                <i class="fa-solid fa-plus text-[10px]"></i>
+                                <span>Adicionar</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            `;
+        }
+
+        /**
+         * Adiciona um produto à sacola de pedidos, aplicando Leite de Aveia se selecionado.
+         * @param {number} id - ID do produto.
+         */
+        function addToCart(id) {
+            try {
+                const product = menuData.find(p => p.id === id);
+                if (!product) return;
+
+                const withOat = isItemOatSelected(id);
+                const itemKey = `${id}-${withOat ? "oat" : "std"}`;
+                const displayName = withOat ? `${product.nome} (+ Leite de Aveia)` : product.nome;
+
+                const existing = cart.find(c => c.key === itemKey);
+                if (existing) {
+                    existing.qty += 1;
+                } else {
+                    cart.push({
+                        key: itemKey,
+                        productId: product.id,
+                        nome: displayName,
+                        basePreco: Number(product.preco),
+                        withOat: withOat,
+                        qty: 1
+                    });
+                }
+
+                updateCartUI();
+                triggerBadgePop();
+                showToast(withOat ? `"${displayName}" adicionado (+70 MZN / +1 item)!` : `"${displayName}" adicionado ao pedido!`);
+            } catch (err) {
+                console.error("Erro ao adicionar item ao carrinho:", err);
+            }
+        }
+
+        /**
+         * Executa animação de destaque no contador da sacola.
+         */
+        function triggerBadgePop() {
+            const badge = document.getElementById("cart-count-top");
+            const mobileBadge = document.getElementById("cart-count-mobile");
+            [badge, mobileBadge].forEach(el => {
+                if (!el) return;
+                el.classList.remove("badge-pop");
+                void el.offsetWidth;
+                el.classList.add("badge-pop");
+            });
+        }
+
+        /**
+         * Atualiza a quantidade de um item na sacola.
+         * @param {string} key - Identificador único do item na sacola.
+         * @param {number} delta - Variação (+1 ou -1).
+         */
+        function updateQty(key, delta) {
+            const idx = cart.findIndex(c => c.key === key);
+            if (idx === -1) return;
+
+            cart[idx].qty += delta;
+            if (cart[idx].qty <= 0) {
+                cart.splice(idx, 1);
+            }
+            updateCartUI();
+        }
+
+        /**
+         * Calcula os totais da sacola (unidades, itens extras de Leite de Aveia e valor em MZN).
+         * @returns {{totalItems: number, oatUnits: number, oatExtraTotal: number, totalMZN: number}}
+         */
+        function getCartTotals() {
+            const baseUnits = cart.reduce((acc, item) => acc + item.qty, 0);
+            const oatUnits = cart.reduce((acc, item) => acc + (item.withOat ? item.qty : 0), 0);
+            const oatExtraTotal = oatUnits * OAT_MILK_PRICE;
+            const totalMZN = cart.reduce((acc, item) => {
+                const unitPrice = Number(item.basePreco) + (item.withOat ? OAT_MILK_PRICE : 0);
+                return acc + (unitPrice * item.qty);
+            }, 0);
+
+            return {
+                totalItems: baseUnits + oatUnits,
+                oatUnits,
+                oatExtraTotal,
+                totalMZN
+            };
+        }
+
+        /**
+         * Atualiza a interface da sacola de pedidos e o total em MZN.
+         */
+        function updateCartUI() {
+            const { totalItems, oatUnits, oatExtraTotal, totalMZN } = getCartTotals();
+
+            document.getElementById("cart-count-top").textContent = totalItems;
+            document.getElementById("cart-count-mobile").textContent = totalItems;
+
+            const oatSummaryEl = document.getElementById("cart-oat-summary");
+            const oatCountEl = document.getElementById("cart-oat-count");
+            const oatItemsEl = document.getElementById("cart-oat-items");
+            const oatTotalEl = document.getElementById("cart-oat-total");
+
+            if (oatSummaryEl && oatCountEl && oatItemsEl && oatTotalEl) {
+                if (oatUnits > 0) {
+                    oatSummaryEl.classList.remove("hidden");
+                    oatSummaryEl.classList.add("flex");
+                    oatCountEl.textContent = oatUnits;
+                    oatItemsEl.textContent = oatUnits;
+                    oatTotalEl.textContent = `+${oatExtraTotal} MZN`;
+                } else {
+                    oatSummaryEl.classList.add("hidden");
+                    oatSummaryEl.classList.remove("flex");
+                    oatCountEl.textContent = "0";
+                    oatItemsEl.textContent = "0";
+                    oatTotalEl.textContent = "0 MZN";
+                }
+            }
+
+            document.getElementById("cart-total").textContent = `${totalMZN} MZN`;
+
+            const listEl = document.getElementById("cart-list");
+            if (cart.length === 0) {
+                listEl.innerHTML = `
+                    <div class="h-full flex flex-col items-center justify-center text-center py-12 text-ritual-taupe">
+                        <i class="fa-solid fa-mug-hot text-4xl text-ritual-sand mb-3"></i>
+                        <p class="font-serif font-bold text-lg text-ritual-espresso">A sua sacola está vazia</p>
+                        <p class="text-xs max-w-xs mt-1">Escolha os seus cafés favoritos do cardápio para enviar o pedido pelo WhatsApp.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            listEl.innerHTML = cart.map(item => {
+                const unitWithOat = Number(item.basePreco) + (item.withOat ? OAT_MILK_PRICE : 0);
+                const itemSubtotal = unitWithOat * item.qty;
+                return `
+                    <div class="bg-white p-3.5 rounded-2xl border border-ritual-sand flex items-center justify-between gap-3 shadow-xs">
+                        <div class="min-w-0">
+                            <h4 class="font-serif font-bold text-sm text-ritual-espresso leading-snug">${item.nome}</h4>
+                            <p class="text-xs font-semibold text-ritual-brown mt-0.5">${itemSubtotal} MZN <span class="text-ritual-taupe font-normal">(${unitWithOat} MZN/un${item.withOat ? ' incl. +70 MZN aveia' : ''})</span></p>
+                            <button type="button" onclick="toggleItemOatMilk('${item.key}')" class="mt-1.5 inline-flex items-center gap-1 text-[10px] font-semibold px-2.5 py-0.5 rounded-full border transition ${item.withOat ? 'bg-ritual-taupe/15 text-ritual-espresso border-ritual-taupe/40 hover:bg-ritual-taupe/25' : 'bg-ritual-beige text-ritual-brown border-ritual-sand hover:border-ritual-brown'}">
+                                <i class="fa-solid ${item.withOat ? 'fa-xmark' : 'fa-plus'} text-[9px]"></i>
+                                <span>${item.withOat ? 'Tirar Leite de Aveia (-1 item / -70 MZN)' : 'Adicionar Leite de Aveia (+1 item / +70 MZN)'}</span>
+                            </button>
+                        </div>
+                        <div class="flex items-center gap-2 bg-ritual-beige px-2.5 py-1 rounded-full border border-ritual-sand flex-shrink-0">
+                            <button type="button" onclick="updateQty('${item.key}', -1)" class="w-6 h-6 rounded-full bg-white text-ritual-espresso hover:bg-ritual-brown hover:text-white text-xs font-bold transition flex items-center justify-center">-</button>
+                            <span class="text-xs font-bold w-4 text-center">${item.qty}</span>
+                            <button type="button" onclick="updateQty('${item.key}', 1)" class="w-6 h-6 rounded-full bg-white text-ritual-espresso hover:bg-ritual-brown hover:text-white text-xs font-bold transition flex items-center justify-center">+</button>
+                        </div>
+                    </div>
+                `;
+            }).join("");
+        }
+
+        /**
+         * Abre ou fecha a gaveta lateral da sacola.
+         */
+        function toggleCart() {
+            const drawer = document.getElementById("cart-drawer");
+            const overlay = document.getElementById("cart-overlay");
+            if (!drawer || !overlay) return;
+
+            const isHidden = drawer.classList.contains("translate-x-full");
+            if (isHidden) {
+                drawer.classList.remove("translate-x-full");
+                overlay.classList.remove("hidden");
+            } else {
+                drawer.classList.add("translate-x-full");
+                overlay.classList.add("hidden");
+            }
+        }
+
+        /**
+         * Mostra ou oculta o campo de endereço conforme a modalidade escolhida.
+         */
+        function toggleAddressField() {
+            const delivery = document.getElementById("order-delivery").value;
+            const addrInput = document.getElementById("order-address");
+            if (!addrInput) return;
+
+            if (delivery === "Entrega (Delivery)") {
+                addrInput.classList.remove("hidden");
+            } else {
+                addrInput.classList.add("hidden");
+            }
+        }
+
+        /**
+         * Formata o pedido e abre o WhatsApp da Ritual Specialty Coffee.
+         */
+        function sendOrderWhatsApp() {
+            try {
+                if (cart.length === 0) {
+                    showToast("Adicione pelo menos um café antes de enviar.", true);
+                    return;
+                }
+
+                const customer = document.getElementById("order-customer").value.trim();
+                const delivery = document.getElementById("order-delivery").value;
+                const payment = document.getElementById("order-payment").value;
+                const address = document.getElementById("order-address").value.trim();
+                const notes = document.getElementById("order-notes").value.trim();
+
+                if (!customer) {
+                    showToast("Por favor, indique o seu nome.", true);
+                    document.getElementById("order-customer").focus();
+                    return;
+                }
+
+                if (delivery === "Entrega (Delivery)" && !address) {
+                    showToast("Por favor, indique o endereço de entrega.", true);
+                    document.getElementById("order-address").focus();
+                    return;
+                }
+
+                const { totalItems, totalMZN } = getCartTotals();
+                const itemsText = cart.map(i => {
+                    const unitTotal = Number(i.basePreco) + (i.withOat ? OAT_MILK_PRICE : 0);
+                    return `• ${i.qty}x ${i.nome} — *${unitTotal * i.qty} MZN*`;
+                }).join("\n");
+
+                let msg = `☕ *NOVO PEDIDO — RITUAL SPECIALTY COFFEE*\n\n`;
+                msg += `👤 *Cliente:* ${customer}\n`;
+                msg += `🛍️ *Modalidade:* ${delivery}\n`;
+                if (delivery === "Entrega (Delivery)") {
+                    msg += `📍 *Endereço:* ${address}\n`;
+                } else {
+                    msg += `📍 *Local de Levantamento:* R. José Mateus, Maputo (Atrás do Polana Shopping)\n`;
+                }
+                msg += `💳 *Pagamento:* ${payment}\n\n`;
+                msg += `📋 *Itens (${totalItems} no total):*\n${itemsText}\n\n`;
+                msg += `💰 *Total:* ${totalMZN} MZN\n`;
+                if (notes) {
+                    msg += `📝 *Obs:* ${notes}\n`;
+                }
+                msg += `\nAguardo confirmação. Obrigado!`;
+
+                const url = `https://wa.me/${RITUAL_WHATSAPP}?text=${encodeURIComponent(msg)}`;
+                window.open(url, "_blank", "noopener,noreferrer");
+                showToast("A abrir WhatsApp da Ritual Specialty Coffee...");
+            } catch (err) {
+                console.error("Erro ao enviar pedido pelo WhatsApp:", err);
+                showToast("Não foi possível abrir o WhatsApp. Tente novamente.", true);
+            }
+        }
+
+        /**
+         * Envia a solicitação de reserva de mesa para o WhatsApp da Ritual Specialty Coffee.
+         * @param {Event} e - Evento de submissão do formulário.
+         */
+        function submitReservation(e) {
+            e.preventDefault();
+            try {
+                const name = document.getElementById("res-name").value.trim();
+                const phone = document.getElementById("res-phone").value.trim();
+                const dateRaw = document.getElementById("res-date").value;
+                const time = document.getElementById("res-time").value;
+                const guests = document.getElementById("res-guests").value;
+                const notes = document.getElementById("res-notes").value.trim();
+
+                const [y, m, d] = dateRaw.split("-");
+                const formattedDate = `${d}/${m}/${y}`;
+
+                let msg = `🪑 *RESERVA DE MESA — RITUAL SPECIALTY COFFEE*\n`;
+                msg += `📍 *Local:* R. José Mateus, Maputo (Atrás do Polana Shopping)\n\n`;
+                msg += `👤 *Nome:* ${name}\n`;
+                msg += `📞 *Contacto:* ${phone}\n`;
+                msg += `📅 *Data:* ${formattedDate}\n`;
+                msg += `⏰ *Hora:* ${time}\n`;
+                msg += `👥 *Pessoas:* ${guests}\n`;
+                if (notes) {
+                    msg += `📝 *Observações:* ${notes}\n`;
+                }
+                msg += `\nPor favor, confirmem a disponibilidade. Obrigado!`;
+
+                const url = `https://wa.me/${RITUAL_WHATSAPP}?text=${encodeURIComponent(msg)}`;
+                window.open(url, "_blank", "noopener,noreferrer");
+                showToast("A encaminhar reserva para o WhatsApp...");
+            } catch (err) {
+                console.error("Erro ao enviar reserva:", err);
+                showToast("Erro ao processar a reserva. Verifique os dados.", true);
+            }
+        }
+
+        /**
+         * Abre ou fecha o menu de navegação mobile.
+         */
+        function toggleMobileMenu() {
+            const menu = document.getElementById("mobile-menu");
+            const icon = document.getElementById("mobile-icon");
+            if (!menu || !icon) return;
+
+            menu.classList.toggle("hidden");
+            if (menu.classList.contains("hidden")) {
+                icon.classList.replace("fa-xmark", "fa-bars");
+            } else {
+                icon.classList.replace("fa-bars", "fa-xmark");
+            }
+        }
+
+        let toastTimer;
+        /**
+         * Exibe uma notificação flutuante discreta.
+         * @param {string} message - Texto da notificação.
+         * @param {boolean} isWarning - Define se é alerta.
+         */
+        function showToast(message, isWarning = false) {
+            const toast = document.getElementById("toast");
+            const text = document.getElementById("toast-text");
+            const icon = document.getElementById("toast-icon");
+            if (!toast || !text || !icon) return;
+
+            text.textContent = message;
+            icon.className = isWarning
+                ? "fa-solid fa-circle-exclamation text-amber-400"
+                : "fa-solid fa-circle-check text-ritual-latte";
+
+            toast.classList.remove("opacity-0", "-translate-y-2");
+            toast.classList.add("opacity-100", "translate-y-0");
+
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => {
+                toast.classList.remove("opacity-100", "translate-y-0");
+                toast.classList.add("opacity-0", "-translate-y-2");
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
